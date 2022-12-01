@@ -1,3 +1,4 @@
+import { ItemsList } from '../lib/components/ItemsList'
 import { chunkItems } from '../lib/utils/helpers'
 import { getAllDollarRates, URI } from '../pages/api'
 
@@ -17,15 +18,10 @@ async function getData() {
 
 export default async function DollarRates() {
   const data = await getData()
-
+ 
   return (
     <main>
-      {data[3]?.map((i:any) => (
-        <div key={i.d}>
-          <p>{i.d}</p>
-          <p>{i.v}</p>
-        </div>
-      ))}
+      <ItemsList data={data}/>
     </main>
   )
 }
