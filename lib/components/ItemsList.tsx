@@ -11,11 +11,15 @@ export default function ItemsList(data: any) {
     }
   }, [data])
 
+  useEffect(() => {
+    if (items) {
+      console.log(items)
+    }
+  }, [items])
   return (
     <div>
-      <div style={{ display: 'flex', flexDirection: 'row', justifyContent: "space-around" }}>
+{/*       <div style={{ display: 'flex', flexDirection: 'row', justifyContent: "space-around" }}>
         <p onClick={() => setPage(page - 1)}>-</p>
-        {/* <p>{items[page][0].d}</p> */}
         <p>{page}</p>
         <p onClick={() => setPage(page + 1)}>+</p>
       </div>
@@ -26,7 +30,7 @@ export default function ItemsList(data: any) {
             <p>{i.v}</p>
           </div>
         ))}
-      </div>
+      </div> */}
     </div>
   )
 }

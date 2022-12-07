@@ -1,5 +1,5 @@
 import { ItemsList } from '../lib/components/ItemsList'
-import { chunkItems } from '../lib/utils/helpers'
+import { groupRegisterByMonth } from '../lib/utils/helpers'
 import { getAllDollarRates, URI } from '../pages/api'
 
 async function getData() {
@@ -7,7 +7,7 @@ async function getData() {
   let data:any[] = []
 
   if (res.data?.length) {
-    data = chunkItems(res.data as any)
+    data = groupRegisterByMonth(res.data as any)
   }
   if (!res) {
     throw new Error('Failed to fetch data')
